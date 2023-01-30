@@ -8,7 +8,7 @@
 
 <body>
 <script>
-window.setInterval(time,2000)
+window.setInterval(time,100)
 
 function time(){
 var date = new Date()
@@ -24,7 +24,8 @@ day = `0${day}`
 let hour = date.getHours()
 let minute = date.getMinutes()
 let second = date.getSeconds()
-document.body.innerHTML = `<h3>Todays date is ${day}/${month}/${year} \n<h4>It is currently ${hour} ${minute} ${second}`}
+document.body.innerHTML = `<font size="+2" color="#00FF00"><h3>Todays date is ${day}/${month}/${year}</font><br>
+ <h4><font size="+2" color="#FF0000">It is currently ${hour}:${minute}:${second}</font>`}
 </script>
 </body>
 </html>
