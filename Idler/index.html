@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<div class="container">
+	<head>
+	<link rel="stylesheet" type="text/css" href="interface.css" />
+	</head>
+		<body onLoad="load()">
+		<table class="table">
+		<tr>
+		<td>Scrap:<span id="Scrap">0</span>
+		<td><button onClick="incrimentScrap(1)">Scavenge the Scrapyard</button>
+		</tr>
+		<tr>
+		<td>Money:<span id="Money">0</span>
+		<td><button onClick="sellScrap()">Sell Scrap</button>
+		</tr>
+		</table>
+		<table class="table">
+		<tr>
+		<td>Hire Scrappers</td>
+		<td>Scrappers: <span id="Scrappers">0</span></td>
+		<td><button onClick="buyScrapper()" class="button"/></td>
+		<td>Cost :<span id="Cost">10</span> <br/></td>
+		</tr>
+		</tr>
+		<td><button onClick="save()">Save</button> <br/></td>
+		<td><button onClick="deleteSave()">Delete Save</button></td>
+		</table>
+		<script type="text/javascript" src="main.js"></script>
+		</body>
+		</div>
+</html>

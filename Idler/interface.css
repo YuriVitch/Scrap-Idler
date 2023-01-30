@@ -1,0 +1,16 @@
+.container {
+	padding:5px 30px 30px 30px;
+	margin:30px;
+	text-align:center;
+}
+.button{
+	width:100px;
+	height:25px
+}
+body{
+	background-color: grey;
+}
+td{
+	padding-right:45px;
+	padding-top:20px
+}
