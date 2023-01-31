@@ -1,37 +1,35 @@
 <!DOCTYPE html>
 <html>
-<div class="container">
 	<head>
 	<link rel="stylesheet" type="text/css" href="interface.css" />
 	</head>
 		<body onLoad="load()">
-		<table class="table">
-		<tr>
-		<td>Scrap:<span id="Scrap">0</span>
-		<td><button onClick="incrimentScrap(1)">Scavenge the Scrapyard</button>
-		</tr>
-		<tr>
-		<td>Money:<span id="Money">0</span>
-		<td><button onClick="sellScrap()">Sell Scrap</button>
-		</tr>
-		</table>
-		<table class="table">
-		<tr>
-		<td>Hire Scrappers</td>
-		<td>Scrappers: <span id="Scrappers">0</span></td>
-		<td><button onClick="buyScrapper()" class="button"/></td>
-		<td>Cost:<span id="ScrapperCost">10</span></td>
-		</tr>
-		<tr>
-		<td>Buy Grinder</td>
-		<td>Grinders: <span id="Grinders">0</span></td>
-		<td><button onClick="buyGrinder()" class="button"/></td>
-		<td>Cost:<span id="GrinderCost">50</span></td>
-		</tr>
-		<td><button onClick="save()">Save</button> <br/></td>
-		<td><button onClick="deleteSave()">Delete Save</button></td>
-		</table>
+			<table class="table">
+				<tr>
+					<td>Scrap:<span id="Scrap">0</span>
+					<td><button onClick="incrimentScrap(1)">Scavenge the Scrapyard</button>
+				</tr>
+				<tr>
+					<td>Money:<span id="Money">0</span>
+					<td><button onClick="sellScrap()">Sell Scrap</button>
+				</tr>
+				<tr>
+					<td>Hire Scrappers</td>
+					<td>Scrappers: <span id="Scrappers">0</span></td>
+					<td><button onClick="buyScrapper()" class="button"/></td>
+					<td>Cost:<span id="ScrapperCost">10</span></td>
+				</tr>
+				<tbody id="grinderreveal" class="grinderreveal">
+					<tr>
+						<td>Buy Grinder</td>
+						<td>Grinders: <span id="Grinders">0</span></td>
+						<td><button onClick="buyGrinder()" class="button"/></td>
+						<td>Cost:<span id="GrinderCost">50</span></td>
+					</tr>
+				</tbody>
+				<td><button onClick="savegame()">Save</button> <br/></td>
+				<td><button onClick="deleteSave()">Delete Save</button></td>
+			</table>
 		<script type="text/javascript" src="main.js"></script>
 		</body>
-		</div>
 </html>
