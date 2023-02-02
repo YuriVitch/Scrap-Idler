@@ -5,7 +5,7 @@ var grinders = 0;
 var exchangerate = 1;
 var nextScrapperCost = 10;
 var nextGrinderCost = 50;
-var gamestate = 0
+var moneystate = 0
 
 function incrimentScrap(number){
 	scrap = scrap + number
@@ -33,9 +33,9 @@ function buyScrapper(){
 };
 
 function grinderReveal() {
-	if(gamestate == 0){
+	if(moneystate == 0){
 		document.getElementById("grinderreveal").style.visibility = "hidden";
-	} else if(gamestate > 0){
+	} else if(moneystate > 0){
 		document.getElementById("grinderreveal").style.visibility = "visible"
 	}
 }
@@ -53,8 +53,8 @@ function buyGrinder(){
 }
 
 function state(value){
-	if(value > 25 && gamestate < 1){
-		gamestate = 1
+	if(value > 25 && moneystate < 1){
+		moneystate = 1
 	}
 }
 	
@@ -67,7 +67,7 @@ function savegame() {
 		sCost: nextScrapperCost,
 		gCost: nextGrinderCost,
 		rate: exchangerate,
-		gState: gamestate
+		mState: moneystate
 	};
 	localStorage.setItem("save", JSON.stringify(save));
 };
@@ -100,8 +100,8 @@ function load() {
 		if(typeof savegame.rate !== "undefined"){
 			rate = savegame.rate;
 		}
-		if(typeof savegame.gState !== "undefined"){
-			gamestate = savegame.gState;
+		if(typeof savegame.mState !== "undefined"){
+			moneystate = savegame.mState;
 		}
 		console.log("Save Loaded")
 }

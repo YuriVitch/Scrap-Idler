@@ -15,6 +15,12 @@ td{
 	padding-right:45px;
 	padding-top:20px
 }
+.lefttable{
+	text-align:left;
+}
+.righttable{
+	text-align:right;
+}
 .grinderreveal{
 	visibility:hidden;
 }
