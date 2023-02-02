@@ -85,6 +85,12 @@ function state(value){
 function switchtab(number){
 	tabs[tab].style.display = "none"
 	tab = tab + number
+	if(tab < 0){
+		tab = tabs.length - 1
+	}
+	else if(tab > (tabs.length - 1)){
+		tab = 0
+	}	
 	tabs[tab].style.display = "block"
 }
 	
