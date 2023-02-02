@@ -6,8 +6,6 @@
 		<body onLoad="load()">
 		<button onclick="switchtab(-1)">Previous tab</button>
 		<button onclick="switchtab(1)">Next tab</button>
-		<div name="table" class="productiontable">
-			<span>Production</span>
 			<table>
 				<tr>
 					<td><img src="sprites/junkyard.png" height="32" width="32"/></td>
@@ -19,6 +17,10 @@
 					<td>Money:<span id="Money">0</span>
 					<td><button onClick="sellScrap()">Sell Scrap</button>
 				</tr>
+			</table>
+		<div name="table" class="productiontable">
+			<span>Production</span>
+			<table>
 				<tr>
 					<td>Hire Scrappers</td>
 					<td>Scrappers: <span id="Scrappers">0</span></td>
