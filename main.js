@@ -16,11 +16,23 @@ function incrimentScrap(number){
 	document.getElementById('Scrap').innerHTML = scrap;
 };
 function incrimentMoney(number){
-	if(scrap > 0){
+	if(scrap > number && carts > 0){
 	money = money + number
 	scrap = scrap - number
 	document.getElementById('Money').innerHTML = money;
 	document.getElementById('Scrap').innerHTML = scrap
+	}
+	else if(carts > 0){
+		scrap = carts + (scrap - number)
+		if(scrap == 1){
+			scrap = 0
+			money = 1 + money + (carts + (scrap - number))
+		}
+		else if(scrap > 0){
+		money = money + (carts + (scrap - number))
+		}
+		document.getElementById('Money').innerHTML = money;
+		document.getElementById('Scrap').innerHTML = scrap
 	}
 };
 function sellScrap(){
