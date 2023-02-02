@@ -1,16 +1,27 @@
 var money = 0;
 var scrap = 0;
 var scrappers = 0;
+var carts = 0
 var grinders = 0;
 var exchangerate = 1;
 var nextScrapperCost = 10;
 var nextGrinderCost = 50;
+var nextCartCost = 25
 var moneystate = 0
 var tab = 0
+const tabs = document.getElementsByName("table")
 
 function incrimentScrap(number){
 	scrap = scrap + number
 	document.getElementById('Scrap').innerHTML = scrap;
+};
+function incrimentMoney(number){
+	if(scrap > 0){
+	money = money + number
+	scrap = scrap - number
+	document.getElementById('Money').innerHTML = money;
+	document.getElementById('Scrap').innerHTML = scrap
+	}
 };
 function sellScrap(){
 	if(scrap > 0){
@@ -32,6 +43,18 @@ function buyScrapper(){
 	nextScrapperCost = Math.floor(10 * Math.pow(1.2, scrappers));
 	document.getElementById("ScrapperCost").innerHTML = nextScrapperCost;
 };
+
+function buyCart(){
+	var cartCost = Math.floor(25 * Math.pow(1.2,carts));
+	if (money >= cartCost){
+		carts = carts + 1;
+		money = money - cartCost;
+		document.getElementById('Shopping').innerHTML = carts;
+		document.getElementById('Money').innerHTML = money
+		};
+	nextCartCost = Math.floor(25 * Math.pow(1.2, carts));
+	document.getElementById("CartCost").innerHTML = nextCartCost;
+}
 
 function grinderReveal() {
 	if(moneystate == 0){
@@ -59,13 +82,22 @@ function state(value){
 	}
 }
 	
+function switchtab(number){
+	tabs[tab].style.display = "none"
+	tab = tab + number
+	tabs[tab].style.display = "block"
+}
+	
+	
 function savegame() {
 	var save = {
 		money: money,
 		scrap: scrap,
 		scrappers: scrappers,
+		carts: carts,
 		grinders: grinders,
 		sCost: nextScrapperCost,
+		scCost: nextCartCost,
 		gCost: nextGrinderCost,
 		rate: exchangerate,
 		mState: moneystate
@@ -85,6 +117,14 @@ function load() {
 		if(typeof savegame.sCost !== "undefined"){
 			nextScrapperCost = savegame.sCost;
 			document.getElementById('ScrapperCost').innerHTML = nextScrapperCost
+		}
+		if(typeof savegame.carts !== "undefined"){
+			carts = savegame.carts;
+			document.getElementById('Shopping').innerHTML = carts;
+		}
+		if(typeof savegame.scCost !== "undefined"){
+			nextCartCost = savegame.scCost;
+			document.getElementById('CartCost').innerHTML = nextCartCost
 		}
 		if(typeof savegame.grinders !== "undefined"){
 			grinders = savegame.grinders;
@@ -115,6 +155,7 @@ function deleteSave(){
 window.setInterval(function(){
 	incrimentScrap(scrappers)
 	incrimentScrap(grinders * 5)
+	incrimentMoney(carts)
 	state(money)
 	grinderReveal()
 }, 1000);

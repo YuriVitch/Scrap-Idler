@@ -4,9 +4,11 @@
 	<link rel="stylesheet" type="text/css" href="interface.css" />
 	</head>
 		<body onLoad="load()">
-		<button onclick="switchtab(production)">Production</button>
-		<button onclick="switchtab(selling)">Sellers</button>
-			<table class="productiontable">
+		<button onclick="switchtab(-1)">Previous tab</button>
+		<button onclick="switchtab(1)">Next tab</button>
+		<div name="table" class="productiontable">
+			<span>Production</span>
+			<table>
 				<tr>
 					<td><img src="sprites/junkyard.png" height="32" width="32"/></td>
 					<td>Scrap:<span id="Scrap">0</span>
@@ -32,6 +34,18 @@
 					</tr>
 				</tbody>
 			</table>
+		</div>
+		<div name="table" class="sellingtable">
+			<span>Export</span>
+			<table>
+				<tr>
+				<td>Buy Shopping Cart</td>
+				<td>Shopping Carts: <span id="Shopping">0</span></td>
+				<td><button onClick="buyCart()" class="button">Buy</button></td>
+				<td>Cost:<span id="CartCost">25</span></td>
+				</tr>
+			</table>
+		</div>
 			<button onClick="savegame()">Save</button> <br/>
 			<button onClick="deleteSave()">Delete Save</button>
 			<div class="bugs">
