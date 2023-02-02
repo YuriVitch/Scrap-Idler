@@ -4,37 +4,41 @@
 	<link rel="stylesheet" type="text/css" href="interface.css" />
 	</head>
 		<body onLoad="load()">
-		<div class="bugs">
-		<a href="https://github.com/YuriVitch/Scrap-Idler">
-		<button>Report bugs here</button>
-		</a>
-		</div>
-			<table class="lefttable">
+		<button onclick="switchtab(production)">Production</button>
+		<button onclick="switchtab(selling)">Sellers</button>
+			<table class="productiontable">
 				<tr>
+					<td><img src="sprites/junkyard.png" height="32" width="32"/></td>
 					<td>Scrap:<span id="Scrap">0</span>
 					<td><button onClick="incrimentScrap(1)">Scavenge the Scrapyard</button>
 				</tr>
 				<tr>
+				<td><img src="sprites/Money.png" height="32" width="32"/></td>
 					<td>Money:<span id="Money">0</span>
 					<td><button onClick="sellScrap()">Sell Scrap</button>
 				</tr>
 				<tr>
 					<td>Hire Scrappers</td>
 					<td>Scrappers: <span id="Scrappers">0</span></td>
-					<td><button onClick="buyScrapper()" class="button"/></td>
+					<td><button onClick="buyScrapper()" class="button">Buy</button></td>
 					<td>Cost:<span id="ScrapperCost">10</span></td>
 				</tr>
 				<tbody id="grinderreveal" class="grinderreveal">
 					<tr>
 						<td>Buy Grinder</td>
 						<td>Grinders: <span id="Grinders">0</span></td>
-						<td><button onClick="buyGrinder()" class="button"/></td>
+						<td><button onClick="buyGrinder()" class="button">Buy</button></td>
 						<td>Cost:<span id="GrinderCost">50</span></td>
 					</tr>
 				</tbody>
-				<td><button onClick="savegame()">Save</button> <br/></td>
-				<td><button onClick="deleteSave()">Delete Save</button></td>
 			</table>
+			<button onClick="savegame()">Save</button> <br/>
+			<button onClick="deleteSave()">Delete Save</button>
+			<div class="bugs">
+				<a href="https://github.com/YuriVitch/Scrap-Idler">
+					<button>Report bugs here</button>
+				</a>
+			</div>
 		<script type="text/javascript" src="main.js"></script>
 		</body>
 </html>

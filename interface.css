@@ -1,5 +1,5 @@
 .bugs{
-	text-align:left;
+	text-align:center
 }
 .button{
 	width:100px;
@@ -15,12 +15,12 @@ td{
 	padding-right:45px;
 	padding-top:20px
 }
-.lefttable{
-	text-align:left;
+.productiontable{
+	
 }
-.righttable{
-	text-align:right;
+.sellingtable{
+	
 }
 .grinderreveal{
-	visibility:hidden;
+	display:none;
 }

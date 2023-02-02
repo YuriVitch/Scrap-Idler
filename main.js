@@ -6,6 +6,7 @@ var exchangerate = 1;
 var nextScrapperCost = 10;
 var nextGrinderCost = 50;
 var moneystate = 0
+var tab = 0
 
 function incrimentScrap(number){
 	scrap = scrap + number
@@ -34,9 +35,9 @@ function buyScrapper(){
 
 function grinderReveal() {
 	if(moneystate == 0){
-		document.getElementById("grinderreveal").style.visibility = "hidden";
+		document.getElementById("grinderreveal").style.display = "none";
 	} else if(moneystate > 0){
-		document.getElementById("grinderreveal").style.visibility = "visible"
+		document.getElementById("grinderreveal").style.visibility = "inherit"
 	}
 }
 
