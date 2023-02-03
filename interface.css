@@ -1,6 +1,11 @@
 .bugs{
 	text-align:center
 }
+.center{
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+}
 .button{
 	width:100px;
 	height:25px
@@ -16,10 +21,9 @@ td{
 	padding-top:20px
 }
 .productiontable{
-	
 }
 .sellingtable{
-	display:none
+	display:none;
 }
 .grinderreveal{
 	display:none;

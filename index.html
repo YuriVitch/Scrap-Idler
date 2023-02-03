@@ -6,21 +6,20 @@
 		<body onLoad="load()">
 		<button onclick="switchtab(-1)">Previous tab</button>
 		<button onclick="switchtab(1)">Next tab</button>
-			<table>
-				<tr>
-					<td><img src="sprites/junkyard.png" height="32" width="32"/></td>
-					<td>Scrap:<span id="Scrap">0</span>
-					<td><button onClick="incrimentScrap(1)">Scavenge the Scrapyard</button>
-				</tr>
-				<tr>
+		<table class="center">
+			<tr>
+				<td><img src="sprites/junkyard.png" height="32" width="32"/></td>
+				<td>Scrap:<span id="Scrap">0</span></td>
+				<td><button onClick="incrimentScrap(1)">Scavenge the Scrapyard</button></td>
+			</tr>
+			<tr>
 				<td><img src="sprites/money.png" height="32" width="32"/></td>
-					<td>Money:<span id="Money">0</span>
-					<td><button onClick="sellScrap()">Sell Scrap</button>
-				</tr>
-			</table>
+				<td>Money:<span id="Money">0</span></td>
+				<td><button onClick="sellScrap()">Sell Scrap</button></td>
+		</table>
 		<div name="table" class="productiontable">
 			<span>Production</span>
-			<table>
+			<table class="center">
 				<tr>
 					<td>Hire Scrappers</td>
 					<td>Scrappers: <span id="Scrappers">0</span></td>
@@ -39,7 +38,7 @@
 		</div>
 		<div name="table" class="sellingtable">
 			<span>Export</span>
-			<table>
+			<table class="center">
 				<tr>
 				<td>Buy Shopping Cart</td>
 				<td>Shopping Carts: <span id="Shopping">0</span></td>
