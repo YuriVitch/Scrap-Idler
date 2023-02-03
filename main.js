@@ -176,5 +176,4 @@ window.setInterval(function(){
 }, 1000);
 window.setInterval(function(){
 	savegame()
-}
-), 900000)
+}, 900000)
