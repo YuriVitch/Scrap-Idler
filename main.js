@@ -1,21 +1,30 @@
 var money = 0;
 var scrap = 0;
+var science = 0;
 var scrappers = 0;
-var carts = 0
+var carts = 0;
 var grinders = 0;
+var flask = 0;
 var exchangerate = 1;
 var nextScrapperCost = 10;
 var nextGrinderCost = 50;
-var nextCartCost = 25
-var moneystate = 0
-var tab = 0
-var production
-const tabs = document.getElementsByName("table")
+var nextCartCost = 25;
+var moneystate = 0;
+var tab = 0;
+var production;
+var sciProd;
+const tabs = document.getElementsByName("table");
 
 function incrimentScrap(number){
 	scrap = scrap + number
 	document.getElementById('Scrap').innerHTML = scrap;
 };
+
+function incrimentResearch(production){
+	science = science + production
+	document.getElementById("science").innerHTML = science
+}
+
 function incrimentMoney(number){
 	let maxsell = scrap
 	let maxsellers = number
@@ -32,10 +41,11 @@ function incrimentMoney(number){
 		number--
 	}
 };
+
 function sellScrap(){
 	if(scrap > 0){
-		money = money + (scrap * exchangerate);
-		scrap = 0;
+		money = money + (1 * exchangerate);
+		scrap = scrap - 1;
 		document.getElementById('Money').innerHTML = money;
 		document.getElementById('Scrap').innerHTML = scrap
 	}
@@ -103,7 +113,6 @@ function switchtab(number){
 	tabs[tab].style.display = "block"
 }
 	
-	
 function savegame() {
 	var save = {
 		money: money,
@@ -119,6 +128,7 @@ function savegame() {
 	};
 	localStorage.setItem("save", JSON.stringify(save));
 };
+
 function load() {
 	try{var savegame = JSON.parse(localStorage.getItem("save"));
 		if(typeof savegame.money !== "undefined"){
@@ -163,17 +173,22 @@ function load() {
 }
 		catch{console.log("So no save?")}
 }
+
 function deleteSave(){
 	localStorage.removeItem("save")
 }
 
 window.setInterval(function(){
 	production = scrappers + (grinders*5)
+	sciProd = (flask)
 	incrimentScrap(production)
 	incrimentMoney(carts)
+	incrimentResearch(science)
 	state(money)
 	grinderReveal()
 }, 1000);
+
 window.setInterval(function(){
 	savegame()
+	console.log("autosaved")
 }, 900000)

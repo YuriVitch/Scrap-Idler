@@ -25,6 +25,9 @@ td{
 .sellingtable{
 	display:none;
 }
+.sciencetable{
+	display:none;
+}
 .grinderreveal{
 	display:none;
 	margin-left:auto;

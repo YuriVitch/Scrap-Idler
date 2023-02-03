@@ -11,11 +11,14 @@
 				<td><img src="sprites/junkyard.png" height="32" width="32"/></td>
 				<td>Scrap:<span id="Scrap">0</span></td>
 				<td><button onClick="incrimentScrap(1)">Scavenge the Scrapyard</button></td>
-			</tr>
-			<tr>
 				<td><img src="sprites/money.png" height="32" width="32"/></td>
 				<td>Money:<span id="Money">0</span></td>
 				<td><button onClick="sellScrap()">Sell Scrap</button></td>
+			</tr>
+				<td><img src="sprites/research.png" height="32" width="32"/></td>
+				<td>Science:<span id="science">0</span></td>
+			<tr>
+			</tr>
 		</table>
 		<div name="table" class="productiontable">
 			<span>Production</span>
@@ -49,6 +52,9 @@
 				<td>Cost:<span id="CartCost">25</span></td>
 				</tr>
 			</table>
+		</div>
+		<div name="table" class="sciencetable">
+		<span>Research</span>
 		</div>
 			<button onClick="savegame()">Save</button> <br/>
 			<button onClick="deleteSave()">Delete Save</button>
