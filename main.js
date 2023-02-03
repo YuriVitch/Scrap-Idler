@@ -52,26 +52,26 @@ function sellScrap(){
 };
 
 function buyScrapper(){
-	var scrapperCost = Math.floor(10 * Math.pow(1.2,scrappers));
+	var scrapperCost = Math.floor(10 * Math.pow(1.3,scrappers));
 	if (money >= scrapperCost){
 		scrappers = scrappers + 1;
 		money = money - scrapperCost;
 		document.getElementById('Scrappers').innerHTML = scrappers;
 		document.getElementById('Money').innerHTML = money
 		};
-	nextScrapperCost = Math.floor(10 * Math.pow(1.2, scrappers));
+	nextScrapperCost = Math.floor(10 * Math.pow(1.3, scrappers));
 	document.getElementById("ScrapperCost").innerHTML = nextScrapperCost;
 };
 
 function buyCart(){
-	var cartCost = Math.floor(25 * Math.pow(1.2,carts));
+	var cartCost = Math.floor(25 * Math.pow(1.4,carts));
 	if (money >= cartCost){
 		carts = carts + 1;
 		money = money - cartCost;
 		document.getElementById('Shopping').innerHTML = carts;
 		document.getElementById('Money').innerHTML = money
 		};
-	nextCartCost = Math.floor(25 * Math.pow(1.2, carts));
+	nextCartCost = Math.floor(25 * Math.pow(1.4, carts));
 	document.getElementById("CartCost").innerHTML = nextCartCost;
 }
 
@@ -84,14 +84,14 @@ function grinderReveal() {
 }
 
 function buyGrinder(){
-	var grinderCost = Math.floor(50 * Math.pow(1.2,grinders))
+	var grinderCost = Math.floor(50 * Math.pow(1.5,grinders))
 	if(money >= grinderCost){
 		grinders = grinders + 1;
 		money = money - grinderCost
 		document.getElementById("Grinders").innerHTML = grinders
 		document.getElementById("Money").innerHTML = money
 	};
-	nextGrinderCost = Math.floor(50 * Math.pow(1.2, grinders))
+	nextGrinderCost = Math.floor(50 * Math.pow(1.5, grinders))
 	document.getElementById("GrinderCost").innerHTML = nextGrinderCost
 }
 
