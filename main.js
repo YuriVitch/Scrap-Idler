@@ -9,6 +9,7 @@ var nextGrinderCost = 50;
 var nextCartCost = 25
 var moneystate = 0
 var tab = 0
+var production
 const tabs = document.getElementsByName("table")
 
 function incrimentScrap(number){
@@ -16,24 +17,20 @@ function incrimentScrap(number){
 	document.getElementById('Scrap').innerHTML = scrap;
 };
 function incrimentMoney(number){
-	if(scrap > number && carts > 0){
-	money = money + number
-	scrap = scrap - number
+	let maxsell = scrap
+	let maxsellers = number
+	while(number){
+			if(scrap){
+				scrap = scrap - 1
+				money = money + exchangerate
+			}
+			else{
+			break	
+			}
+		number--
+	}
 	document.getElementById('Money').innerHTML = money;
 	document.getElementById('Scrap').innerHTML = scrap
-	}
-	else if(carts > 0){
-		scrap = carts + (scrap - number)
-		if(scrap == 1){
-			scrap = 0
-			money = 1 + money + (carts + (scrap - number))
-		}
-		else if(scrap > 0){
-		money = money + (carts + (scrap - number))
-		}
-		document.getElementById('Money').innerHTML = money;
-		document.getElementById('Scrap').innerHTML = scrap
-	}
 };
 function sellScrap(){
 	if(scrap > 0){
@@ -171,8 +168,8 @@ function deleteSave(){
 }
 
 window.setInterval(function(){
-	incrimentScrap(scrappers)
-	incrimentScrap(grinders * 5)
+	production = scrappers + (grinders*5)
+	incrimentScrap(production)
 	incrimentMoney(carts)
 	state(money)
 	grinderReveal()
