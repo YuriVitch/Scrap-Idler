@@ -174,3 +174,7 @@ window.setInterval(function(){
 	state(money)
 	grinderReveal()
 }, 1000);
+window.setInterval(function(){
+	savegame()
+}
+), 900000)
