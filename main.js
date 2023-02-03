@@ -25,7 +25,7 @@ function incrimentMoney(number){
 				money = money + exchangerate
 			}
 			else{
-			break	
+			return	
 			}
 		number--
 	}
@@ -69,7 +69,7 @@ function grinderReveal() {
 	if(moneystate == 0){
 		document.getElementById("grinderreveal").style.display = "none";
 	} else if(moneystate > 0){
-		document.getElementById("grinderreveal").style.visibility = "inherit"
+		document.getElementById("grinderreveal").style.display = "table-row-group"
 	}
 }
 
