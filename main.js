@@ -27,10 +27,10 @@ function incrimentMoney(number){
 			else{
 			return	
 			}
+		document.getElementById('Money').innerHTML = money;
+		document.getElementById('Scrap').innerHTML = scrap
 		number--
 	}
-	document.getElementById('Money').innerHTML = money;
-	document.getElementById('Scrap').innerHTML = scrap
 };
 function sellScrap(){
 	if(scrap > 0){
