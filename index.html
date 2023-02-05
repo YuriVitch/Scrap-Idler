@@ -15,9 +15,9 @@
 				<td>Money:<span id="Money">0</span></td>
 				<td><button onClick="sellScrap()">Sell Scrap</button></td>
 			</tr>
+			<tr>
 				<td><img src="sprites/research.png" height="32" width="32"/></td>
 				<td>Science:<span id="science">0</span></td>
-			<tr>
 			</tr>
 		</table>
 		<div name="table" class="productiontable">
@@ -54,7 +54,13 @@
 			</table>
 		</div>
 		<div name="table" class="sciencetable">
-		<span>Research</span>
+			<span>Research</span>
+				<table class="center">
+					<td>Higher Wages for Scrappers</td>
+					<td>Wages: <span id="wages">1</span></td>
+					<td><button onClick="upgradeWages()" class="button">Upgrade</button></td>
+					<td>Points required:<span id="wagecost">50</span></td>
+				</table>
 		</div>
 			<button onClick="savegame()">Save</button> <br/>
 			<button onClick="deleteSave()">Delete Save</button>

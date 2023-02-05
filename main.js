@@ -9,7 +9,9 @@ var exchangerate = 1;
 var nextScrapperCost = 10;
 var nextGrinderCost = 50;
 var nextCartCost = 25;
+var nextWageCost = 50;
 var moneystate = 0;
+var wages = 1
 var tab = 0;
 var production;
 var sciProd;
@@ -84,15 +86,27 @@ function grinderReveal() {
 }
 
 function buyGrinder(){
-	var grinderCost = Math.floor(50 * Math.pow(1.5,grinders))
+	var grinderCost = Math.floor(50 * Math.pow(1.5, grinders))
 	if(money >= grinderCost){
 		grinders = grinders + 1;
-		money = money - grinderCost
-		document.getElementById("Grinders").innerHTML = grinders
-		document.getElementById("Money").innerHTML = money
+		money = money - grinderCost;
+		document.getElementById("Grinders").innerHTML = grinders;
+		document.getElementById("Money").innerHTML = money;
 	};
-	nextGrinderCost = Math.floor(50 * Math.pow(1.5, grinders))
+	nextGrinderCost = Math.floor(50 * Math.pow(1.5, grinders));
 	document.getElementById("GrinderCost").innerHTML = nextGrinderCost
+}
+
+function upgradeWages(){
+	var wagecost = Math.floor(50 * Math.pow(2, wages))
+		if(science >= wagecost){
+			wages = wages + 0.25;
+			science = science - wagecost;
+			document.getElementById("wages").innerHTML = wages;
+			document.getElementById("science").innerHTML = science
+		}
+	nextWageCost = Math.floor(50 * Math.pow(2, wages));
+	document.getElementById("wagecost").innerHTML = nextWageCost
 }
 
 function state(value){
@@ -179,11 +193,11 @@ function deleteSave(){
 }
 
 window.setInterval(function(){
-	production = scrappers + (grinders*5)
+	production = (scrappers * wages) + (grinders*5)
 	sciProd = (flask)
 	incrimentScrap(production)
 	incrimentMoney(carts)
-	incrimentResearch(science)
+	incrimentResearch(sciProd)
 	state(money)
 	grinderReveal()
 }, 1000);
