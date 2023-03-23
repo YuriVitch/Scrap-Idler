@@ -27,18 +27,16 @@
 					<td><img src="sprites/scrapper.png" height="32" width="32"/></td>
 					<td>Hire Scrappers</td>
 					<td>Scrappers: <span id="Scrappers">0</span></td>
-					<td><button onClick="buyScrapper()" class="button">Buy</button></td>
+					<td><button onClick="buyScrapper()" class="button" title="Increases scrap production by 1">Buy</button></td>
 					<td>Cost:<span id="ScrapperCost">10</span></td>
-				</tr>
 				<tbody id="grinderreveal" class="grinderreveal">
-					<tr>
 						<td><img src="sprites/grinder.png" height="32" width="32"/></td>
 						<td>Buy Grinder</td>
 						<td>Grinders: <span id="Grinders">0</span></td>
-						<td><button onClick="buyGrinder()" class="button">Buy</button></td>
+						<td><button onClick="buyGrinder()" class="button" title="Increases scrap production by 5">Buy</button></td>
 						<td>Cost:<span id="GrinderCost">50</span></td>
-					</tr>
 				</tbody>
+				</tr>
 			</table>
 		</div>
 		<div name="table" class="sellingtable">
@@ -54,6 +52,15 @@
 			</table>
 		</div>
 		<div name="table" class="sciencetable">
+			<span>Science</span>
+				<table class="center">
+					<td>Purchase Flasks</td>
+					<td>Flasks: <span id="flasks">0</span></td>
+					<td><button onClick="buyFlasks()" class="button">Purchase</button></td>
+					<td>Cost:<span id="flaskcost">25</span></td>
+				</table>
+		</div>
+		<div name="table" class="researchtable">
 			<span>Research</span>
 				<table class="center">
 					<td>Higher Wages for Scrappers</td>

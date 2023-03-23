@@ -10,9 +10,11 @@ var nextScrapperCost = 10;
 var nextGrinderCost = 50;
 var nextCartCost = 25;
 var nextWageCost = 50;
+var nextFlaskCost = 25
 var moneystate = 0;
 var wages = 1
 var tab = 0;
+var deletedsave = 0;
 var production;
 var sciProd;
 const tabs = document.getElementsByName("table");
@@ -97,6 +99,18 @@ function buyGrinder(){
 	document.getElementById("GrinderCost").innerHTML = nextGrinderCost
 }
 
+function buyFlasks(){
+	var flaskCost = Math.floor(25 * Math.pow(2, flask))
+	if(money >= flaskCost){
+		flask = flask + 1;
+		money = money - flaskCost;
+		document.getElementById("flasks").innerHTML = flask;
+		document.getElementById("Money").innerHTML = money;
+	};
+	nextFlaskCost = Math.floor(25 * Math.pow(2, flask))
+	document.getElementById("flaskcost").innerHTML = nextFlaskCost
+}
+
 function upgradeWages(){
 	var wagecost = Math.floor(50 * Math.pow(2, wages))
 		if(science >= wagecost){
@@ -131,6 +145,7 @@ function savegame() {
 	var save = {
 		money: money,
 		scrap: scrap,
+		sci: science,
 		scrappers: scrappers,
 		carts: carts,
 		grinders: grinders,
@@ -138,7 +153,10 @@ function savegame() {
 		scCost: nextCartCost,
 		gCost: nextGrinderCost,
 		rate: exchangerate,
-		mState: moneystate
+		mState: moneystate,
+		flasks: flask,
+		fCost: nextFlaskCost,
+		wages: wages
 	};
 	localStorage.setItem("save", JSON.stringify(save));
 };
@@ -183,18 +201,40 @@ function load() {
 		if(typeof savegame.mState !== "undefined"){
 			moneystate = savegame.mState;
 		}
+		if(typeof savegame.wages !== "undefined"){
+			wages = savegame.wages;
+		}
+		if(typeof savegame.flasks !== "undefined"){
+			flask = savegame.flasks;
+		}
+		if(typeof savegame.fCost !== "undefined"){
+			nextFlaskCost = savegame.fCost;
+		}
+		if(typeof savegame.sci !== "undefined"){
+			science = savegame.sci;
+		}
 		console.log("Save Loaded")
+		console.log(savegame)
 }
 		catch{console.log("So no save?")}
+		try{for(let item in savegame){
+			if(savegame.hasOwnProperty(item)){
+			console.log(savegame[item])
+			}
+		}
+		}
+		catch{console.log("fuck")}
 }
 
 function deleteSave(){
 	localStorage.removeItem("save")
+	deletedsave = 1
 }
 
+//Main Loop
 window.setInterval(function(){
 	production = (scrappers * wages) + (grinders*5)
-	sciProd = (flask)
+	sciProd = (flask * 0.25)
 	incrimentScrap(production)
 	incrimentMoney(carts)
 	incrimentResearch(sciProd)
@@ -202,7 +242,15 @@ window.setInterval(function(){
 	grinderReveal()
 }, 1000);
 
+//Autosave
 window.setInterval(function(){
 	savegame()
 	console.log("autosaved")
 }, 900000)
+
+//Saves on page exit
+window.onbeforeunload = function(){
+	if(deletedsave == 0){
+	savegame()
+	}
+}
